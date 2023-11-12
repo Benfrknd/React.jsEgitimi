@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hesap Makinesi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .ust{
+          max-width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 5px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .calculator {
+            max-width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 5px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="text"] {
+            width: 178px;
+            height: 50px;
+            margin: 5px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h1 class="ust">Hesap Makinesi</h1>
+
+<div class="calculator">
+    <input type="text" id="result" readonly>
+    <button onclick="clearResult()">C</button>
+
+    <br>
+    <button onclick="appendNumber('7')">7</button>
+    <button onclick="appendNumber('8')">8</button>
+    <button onclick="appendNumber('9')">9</button>
+    <button onclick="performOperation('/')">/</button>
+    <br>
+    <button onclick="appendNumber('4')">4</button>
+    <button onclick="appendNumber('5')">5</button>
+    <button onclick="appendNumber('6')">6</button>
+    <button onclick="performOperation('*')">*</button>
+    <br>
+    <button onclick="appendNumber('1')">1</button>
+    <button onclick="appendNumber('2')">2</button>
+    <button onclick="appendNumber('3')">3</button>
+    <button onclick="performOperation('-')">-</button>
+    <br>
+    <button onclick="appendNumber('0')">0</button>
+    <button onclick="appendNumber('.')">.</button>
+    <button onclick="calculateResult()">=</button>
+    <button onclick="performOperation('+')">+</button>
+</div>
+
+<script>
+    function clearResult() {
+        document.getElementById('result').value = '';
+    }
+
+    function appendNumber(number) {
+        document.getElementById('result').value += number;
+    }
+
+    function performOperation(operator) {
+        document.getElementById('result').value += operator;
+    }
+
+    function calculateResult() {
+        const result = eval(document.getElementById('result').value);
+        document.getElementById('result').value = result;
+    }
+</script>
+
+</body>
+</html>
